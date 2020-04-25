@@ -14,6 +14,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
+
 import org.dpppt.android.app.R;
 import org.dpppt.android.app.onboarding.OnboardingActivity;
 
@@ -39,6 +43,8 @@ public class MainActivity extends FragmentActivity {
 				startActivityForResult(new Intent(this, OnboardingActivity.class), REQ_ONBOARDING);
 			}
 		}
+		AppCenter.start(getApplication(), "56e7bb4a-4d2e-4104-8f4d-b7dd1d3f3c5e",
+				Analytics.class, Crashes.class);
 	}
 
 	public void showMainFragment() {
